@@ -37,10 +37,7 @@
   align-items: flex-end;
   justify-content: center;
 }
-#diceBox {
+#dice {
   display: flex;
   align-self: center;
-  height: 10%;
-  width: 20%;
-  background-color: yellow;
 }
