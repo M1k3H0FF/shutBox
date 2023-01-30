@@ -28,6 +28,9 @@ function rollDice() {
       if (event.target.innerHTML <= minusNum) {
         event.target.innerHTML = "";
       }
+      if(minusNum === 0){
+        alert("alert")
+      }
       console.log(minusNum, "line30")
      
       // console.log(finalNum, id, minusNum, "line39");
