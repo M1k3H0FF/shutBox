@@ -14,19 +14,28 @@ function rollDice() {
       .setAttribute("src", "dice" + randomNumber2 + ".png");
 
     var diceNum = randomNumber1 + randomNumber2;
-
+    localStorage.setItem("dice", diceNum)
     const board = document.getElementById("numbers");
     board.addEventListener("click", onBoardClick);
-    function onBoardClick(event) {
+    function onBoardClick(event, event2) {
       const id = event.target.innerHTML;
       if (event.target.innerHTML <= diceNum) {
         event.target.innerHTML = "";
         var minusNum = diceNum - id;
-        console.log(diceNum, id, minusNum, "line26");
+        const localStore = localStorage.getItem("dice");
+        console.log(localStore, "line18")
+      function secondBoardClick(event2) {
+        if (localStore >= 1) {
+          event.target.innerHTML = "";
+        }
       }
-      if (event.target.innerHTML <= minusNum) {
-        event.target.innerHTML = "";
+        console.log(diceNum, id, minusNum,localStore, "line26");
       }
+      
+
+      // if (event.target.innerHTML <= minusNum) {
+      //   event.target.innerHTML = "";
+      // }
       // if (minusNum === 0) {
       //   alert("0");
       // }
@@ -40,16 +49,15 @@ function rollDice() {
       // const box8 = document.getElementById("num8").innerHTML;
       // const box9 = document.getElementById("num9").innerHTML;
 
-
       // console.log(box1, box2, "line 35");
       // function boardcheck() {
       //   if (box1 && box2 && box3 && box4 && box5 && box6 && box7 &&box8 && box9 === '') {
       //     alert("winner");
       //   }
       // }
-      console.log(minusNum, "line30");
+      // console.log(minusNum, "line30");
 
-      console.log(diceNum, id, minusNum, "line36");
+      // console.log(diceNum, id, minusNum, "line36");
     }
   }, 500);
 }
